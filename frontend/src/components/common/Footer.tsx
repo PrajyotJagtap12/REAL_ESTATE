@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
           {/* Brand Column */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="BuildEstate" className="h-10 w-auto brightness-0 invert" />
-              <span className="font-fraunces text-2xl font-bold">BuildEstate</span>
+              <img src="/logo.png" alt="Your Property" className="h-10 w-auto brightness-0 invert" />
+              <span className="font-fraunces text-2xl font-bold">Your Property</span>
             </Link>
             <p className="font-manrope font-extralight text-[#9ca3af] text-sm leading-relaxed mb-6">
-              AI-powered luxury real estate platform connecting you with your dream home through intelligent matching and personalized recommendations.
+              add to your according
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 <Instagram className="w-5 h-5 text-[#9ca3af] group-hover:text-white transition-colors" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/prajyot-jagtap-225155302/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[rgba(255,255,255,0.05)] hover:bg-[#D4755B] border border-[rgba(255,255,255,0.1)] rounded-lg flex items-center justify-center transition-all group"
@@ -115,22 +115,20 @@ const Footer: React.FC = () => {
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 font-manrope font-extralight text-[#9ca3af] text-sm hover:text-white transition-colors group">
                   <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#D4755B]" />
                   <span className="leading-relaxed">
-                    502, Devpath Building,<br />
-                    Near Torrent Lab,<br />
-                    Ashram Road, Ahmedabad
+                    76 pmc bank pune sadashive peth 30
                   </span>
                 </a>
               </li>
               <li>
-                <a href="tel:+919876543210" className="flex items-center gap-3 font-manrope font-extralight text-[#9ca3af] text-sm hover:text-white transition-colors">
+                <a href="tel:+919403697908" className="flex items-center gap-3 font-manrope font-extralight text-[#9ca3af] text-sm hover:text-white transition-colors">
                   <Phone className="w-5 h-5 flex-shrink-0 text-[#D4755B]" />
-                  <span>+91 98765 43210</span>
+                  <span>+91 9403697908</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@buildestate.com" className="flex items-center gap-3 font-manrope font-extralight text-[#9ca3af] text-sm hover:text-white transition-colors">
+                <a href="mailto:contact@yourproperty.com" className="flex items-center gap-3 font-manrope font-extralight text-[#9ca3af] text-sm hover:text-white transition-colors">
                   <Mail className="w-5 h-5 flex-shrink-0 text-[#D4755B]" />
-                  <span>hello@buildestate.com</span>
+                  <span>contact@yourproperty.com</span>
                 </a>
               </li>
             </ul>
@@ -168,7 +166,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-[rgba(255,255,255,0.1)] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-manrope font-extralight text-[#6b7280] text-sm text-center md:text-left">
-              © 2026 BuildEstate. All rights reserved. Powered by AI.
+              © 2026 Your Property. All rights reserved. Powered by AI.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <a href="#" className="font-manrope font-extralight text-[#6b7280] text-sm hover:text-white transition-colors">

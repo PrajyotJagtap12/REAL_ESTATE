@@ -27,7 +27,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
     website: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'BuildEstate',
+      name: 'Your Property',
       url: SITE_URL,
       description: 'AI-powered luxury real estate platform for finding your perfect property in India.',
       potentialAction: {
@@ -39,12 +39,12 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
     organization: {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'BuildEstate',
+      name: 'Your Property',
       url: SITE_URL,
       logo: `${SITE_URL}/logo.png`,
       sameAs: [
         'https://github.com/AAYUSH412/Real-Estate-Website',
-        'https://linkedin.com/in/AAYUSH412',
+        'https://www.linkedin.com/in/prajyot-jagtap-225155302/',
       ],
       contactPoint: {
         '@type': 'ContactPoint',
@@ -80,7 +80,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
     aiHub: {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
-      name: 'AI Property Hub - BuildEstate',
+      name: 'AI Property Hub - Your Property',
       applicationCategory: 'RealEstateApplication',
       description: 'AI-powered real estate analytics, property search, and investment insights.',
       url: `${SITE_URL}/ai-hub`,

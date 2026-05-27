@@ -40,41 +40,6 @@ const login = async (req, res) => {
       console.log(`[Auth] Auto-verified legacy user: ${email}`);
     }
 
-    // Check if email is verified (only for new users who haven't verified)
-    if (!Registeruser.isEmailVerified && !isLegacyUser) {
-      // Check if they have a verification token (means we've sent them an email)
-      if (Registeruser.emailVerificationToken) {
-        return res.json({
-          message: "Please verify your email before logging in. Check your inbox for the verification link.",
-          success: false,
-          requiresVerification: true
-        });
-      } else {
-        // Edge case: isEmailVerified is false but no token (shouldn't happen, but handle it)
-        // Generate a new verification token and send email
-        const verificationToken = crypto.randomBytes(32).toString("hex");
-        const hashedVerificationToken = crypto.createHash("sha256").update(verificationToken).digest("hex");
-
-        Registeruser.emailVerificationToken = hashedVerificationToken;
-        Registeruser.verificationTokenExpiry = Date.now() + 24 * 60 * 60 * 1000;
-        await Registeruser.save();
-
-        try {
-          const verificationUrl = `${process.env.WEBSITE_URL}/verify-email/${verificationToken}`;
-          await emailService.sendEmailVerification(email, Registeruser.name, verificationUrl);
-        } catch (emailError) {
-          console.error('Failed to send verification email:', emailError);
-        }
-
-        return res.json({
-          message: "We've sent a verification email to your inbox. Please verify your email to continue.",
-          success: false,
-          requiresVerification: true,
-          emailSent: true
-        });
-      }
-    }
-
     const isMatch = await bcrypt.compare(password, Registeruser.password);
     if (isMatch) {
       const token = createtoken(Registeruser._id, rememberMe);

@@ -6,14 +6,14 @@ dotenv.config();
 // Create a pseudo-transporter that uses Brevo's REST API instead of SMTP
 // This bypasses free-tier Render's strict block on outbound port 587 traffic.
 const createTransporter = () => {
-  if (!process.env.BREVO_API_KEY) {
-    console.warn('⚠️  Email API configuration incomplete. Missing BREVO_API_KEY environment variable. Emails will fail silently.');
-  }
-
   return {
     sendMail: async (mailOptions) => {
       if (!process.env.BREVO_API_KEY) {
-        throw new Error('Missing BREVO_API_KEY. Cannot send email.');
+        return {
+          success: false,
+          skipped: true,
+          reason: 'BREVO_API_KEY not configured'
+        };
       }
 
       try {
@@ -41,7 +41,7 @@ const createTransporter = () => {
     },
     verify: async () => {
        if (!process.env.BREVO_API_KEY) {
-          throw new Error('Transporter not configured with BREVO_API_KEY');
+         return false;
        }
        return true; // We can assume it is verified if the key exists during boot
     }
@@ -58,7 +58,7 @@ export const sendEmail = async (mailOptions) => {
 // Health check function
 export const checkEmailHealth = async () => {
   if (!process.env.BREVO_API_KEY) {
-    return { status: 'error', message: 'BREVO_API_KEY not configured' };
+    return { status: 'disabled', message: 'Email service not configured' };
   }
   return { status: 'healthy', message: 'Email service is operational via Brevo REST API' };
 };

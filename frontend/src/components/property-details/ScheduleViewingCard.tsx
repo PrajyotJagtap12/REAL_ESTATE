@@ -155,7 +155,7 @@ const ScheduleViewingCard: React.FC<ScheduleViewingCardProps> = ({ property }) =
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            placeholder="+91 98765 43210"
+            placeholder="+91 9403697908"
             className="w-full bg-[#F5F1E8] border border-[#E6E0DA] rounded-lg px-4 py-3 font-manrope font-extralight text-sm text-[#0F172A] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#D4755B] transition-colors"
             required
           />

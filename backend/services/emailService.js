@@ -41,6 +41,11 @@ class EmailService {
 
       console.log(`📧 Sending email: ${subject} to ${to}`);
       const result = await sendEmail(mailOptions);
+      if (result?.skipped) {
+        console.log(`ℹ️ Email skipped: ${subject} to ${to} (${result.reason || 'email service disabled'})`);
+        return { success: false, skipped: true, reason: result.reason || 'email service disabled' };
+      }
+
       console.log(`✅ Email sent successfully: ${subject} to ${to}`);
 
       return { success: true, messageId: result.messageId };
